@@ -17,15 +17,11 @@ public class SingleBulletScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter()
+    private void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.tag != "Player")
+        if (collision.gameObject.tag != "Player")
         {
             transform.position = transform.position - new Vector3(0.0f, 2.0f, 0.0f);
-        }
-        if (gameObject.tag == "Enemy")
-        {
-
         }
     }
 }
