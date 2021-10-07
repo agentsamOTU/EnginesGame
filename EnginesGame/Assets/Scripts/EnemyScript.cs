@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
+    [DllImport("EnginesGameDLL")]
+    private static extern float GetEnemySpeed();
+
     private NavMeshAgent nav;
 
     public GameObject player;
@@ -21,6 +25,9 @@ public class EnemyScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         nav = gameObject.GetComponent<NavMeshAgent>();
+        nav.speed = GetEnemySpeed();
+        Debug.Log(nav.speed);
+        Debug.Log(GetEnemySpeed());
     }
 
     // Update is called once per frame

@@ -69,7 +69,7 @@ public class PlayerScript : MonoBehaviour
             //transform.position = transform.position + moveMe * 2.0f;
             if (health <= 0)
             {
-
+                Application.Quit();
             }
         }
     }
