@@ -10,7 +10,6 @@ public class PlayerScript : MonoBehaviour
     public GameObject bulletHolder;
     private Rigidbody body;
 
-    public int health = 10;
     public float fireTime=0.0f;
 
     public float fireDelay = 0.5f;
@@ -61,13 +60,13 @@ public class PlayerScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            health--;
+            GlobalVariableScript.Instance.playerHealth--;
             moveMe = collision.transform.position - transform.position;
 
             //body.velocity = new Vector3(moveMe.x,0.0f,moveMe.z)*3.0f;
             tickToMove = 20;
             //transform.position = transform.position + moveMe * 2.0f;
-            if (health <= 0)
+            if (GlobalVariableScript.Instance.playerHealth <= 0)
             {
                 Application.Quit();
             }
