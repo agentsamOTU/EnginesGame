@@ -33,14 +33,22 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeSinceTouch += Time.deltaTime;
-        if (timeSinceTouch > waitOnTouch)
+        if (!GlobalVariableScript.Instance.inEditor)
+        {
+            timeSinceTouch += Time.deltaTime;
+            if (timeSinceTouch > waitOnTouch)
+            {
+                nav.isStopped = false;
+            }
+            if (Vector3.Magnitude(player.transform.position - transform.position) < followDist)
+            {
+                nav.SetDestination(player.transform.position);
+            }
+        }
+        else
         {
             nav.isStopped = false;
-        }
-        if (Vector3.Magnitude(player.transform.position - transform.position) < followDist)
-        {
-            nav.SetDestination(player.transform.position);
+            nav.SetDestination(gameObject.transform.position);
         }
     }
 

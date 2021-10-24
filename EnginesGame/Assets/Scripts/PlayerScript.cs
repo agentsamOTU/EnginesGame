@@ -9,12 +9,15 @@ public class PlayerScript : MonoBehaviour
     public float speed;
     public GameObject bulletHolder;
     private Rigidbody body;
+    public Cinemachine.CinemachineVirtualCamera vCam;
+
 
     public float fireTime=0.0f;
 
     public float fireDelay = 0.5f;
     private Vector3 moveMe;
     public int tickToMove = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,35 +28,47 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        fireTime += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.Space) && fireTime > fireDelay)
+        if(Input.GetKeyDown(KeyCode.F9))
         {
-            bulletHolder.GetComponent<BulletsScript>().Fire(transform.forward, transform.position);
-            fireTime = 0.0f;
+            GlobalVariableScript.Instance.inEditor = !GlobalVariableScript.Instance.inEditor;
+        }
+        if (!GlobalVariableScript.Instance.inEditor)
+        {
+            fireTime += Time.deltaTime;
+
+            if (Input.GetKeyDown(KeyCode.Space) && fireTime > fireDelay)
+            {
+                bulletHolder.GetComponent<BulletsScript>().Fire(transform.forward, transform.position);
+                fireTime = 0.0f;
+            }
         }
     }
 
     void FixedUpdate()
     {
-        float tempVert = Input.GetAxis("Vertical");
-        float tempHor = Input.GetAxis("Horizontal");
-        Vector3 dir = new Vector3(tempHor * speed, 0.0f, tempVert * speed);
-        if (tickToMove != 0)
-        {
-            tickToMove -= 1;
-        }
-        else
-        {
-            body.velocity = dir;
-        }
-        if (tempHor != 0 || tempVert != 0)
-        {
-            transform.rotation = Quaternion.LookRotation(new Vector3(tempHor, 0.0f, tempVert), Vector3.up);
 
+        if (!GlobalVariableScript.Instance.inEditor)
+        {
+            vCam.m_Follow = gameObject.transform;
+
+            float tempVert = Input.GetAxis("Vertical");
+            float tempHor = Input.GetAxis("Horizontal");
+            Vector3 dir = new Vector3(tempHor * speed, 0.0f, tempVert * speed);
+            if (tickToMove != 0)
+            {
+                tickToMove -= 1;
+            }
+            else
+            {
+                body.velocity = dir;
+            }
+            if (tempHor != 0 || tempVert != 0)
+            {
+                transform.rotation = Quaternion.LookRotation(new Vector3(tempHor, 0.0f, tempVert), Vector3.up);
+
+            }
         }
 
-        
     }
 
     void OnCollisionEnter(Collision collision)

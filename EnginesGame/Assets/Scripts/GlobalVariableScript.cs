@@ -9,6 +9,8 @@ public class GlobalVariableScript : MonoBehaviour
 
     public int playerHealth = 10;
 
+    public bool inEditor = false;
+
     private void Awake()
     {
         if(Instance != null)
