@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour
         if (!GlobalVariableScript.Instance.inEditor)
         {
             vCam.m_Follow = gameObject.transform;
-
+            transform.position = new Vector3(transform.position.x, 0.28f, transform.position.z);
             float tempVert = Input.GetAxis("Vertical");
             float tempHor = Input.GetAxis("Horizontal");
             Vector3 dir = new Vector3(tempHor * speed, 0.0f, tempVert * speed);
