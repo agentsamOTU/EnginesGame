@@ -9,7 +9,7 @@ public class EditorScript : MonoBehaviour
     public Stack objectQueue;
     int objectCounter = 0;
     public Cinemachine.CinemachineVirtualCamera vCam;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,8 +48,7 @@ public class EditorScript : MonoBehaviour
             {
                 selectedObj = GameObject.Instantiate(Placeables[objectCounter], transform.position, Quaternion.identity);
             }
-           
-        }
+        }        
     }
 
     private void FixedUpdate()
