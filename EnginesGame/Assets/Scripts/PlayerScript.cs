@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F9))
         {
             GlobalVariableScript.Instance.inEditor = !GlobalVariableScript.Instance.inEditor;
+            CommandInvoker.ClearQueue();
         }
         if (!GlobalVariableScript.Instance.inEditor)
         {

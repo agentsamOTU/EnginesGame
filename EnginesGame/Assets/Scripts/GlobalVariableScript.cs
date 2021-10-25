@@ -11,6 +11,8 @@ public class GlobalVariableScript : MonoBehaviour
 
     public bool inEditor = false;
 
+    public int selectedObject = 0;
+
     private void Awake()
     {
         if(Instance != null)
