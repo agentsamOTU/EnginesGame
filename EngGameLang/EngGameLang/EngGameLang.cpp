@@ -9,23 +9,23 @@
 extern "C" {
     void EXPORT_API FillPlay(char* first, int size)
     {
-        strcpy_s(first, size, "Juego");
+        strcpy_s(first, size, "Jouer");
     }
     void EXPORT_API FillEdit(char* first, int size)
     {
-        strcpy_s(first, size, "Edición");
+        strcpy_s(first, size, "Edition");
     }
     void EXPORT_API FillPHealth(char* first, int size)
     {
-        strcpy_s(first, size, "Salud del Jugador");
+        strcpy_s(first, size, "Sante des Joueurs");
     }
     void EXPORT_API FillCMode(char* first, int size)
     {
-        strcpy_s(first, size, "Modo Actual");
+        strcpy_s(first, size, "Mode Actuel");
     }
     void EXPORT_API FillCObject(char* first, int size)
     {
-        strcpy_s(first, size, "Objeto Actual");
+        strcpy_s(first, size, "Objet Courant");
     }
 }
 
