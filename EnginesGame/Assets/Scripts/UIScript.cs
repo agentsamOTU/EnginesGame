@@ -30,7 +30,7 @@ public class UIScript : MonoBehaviour
 
     void Start()
     {
-        StringBuilder sb = new StringBuilder(20);
+        StringBuilder sb = new StringBuilder(40);
         FillPlay(sb, sb.Capacity);
         play = sb.ToString();
         sb.Clear();
