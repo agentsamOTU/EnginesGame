@@ -18,36 +18,19 @@ public class ObjectSpawner : MonoBehaviour
 
     void Update()
     {
-        //An attempt to make timer pause (didn't work)
-/*        if (Input.GetKey(KeyCode.F9))
+        if (!GlobalVariableScript.Instance.inEditor)
         {
-            //toggle timeScale so in edit mode timer pauses
-            pause = true;
-
-            if (pause)
+            // internal counter
+            timer += Time.deltaTime;
+            if (timer > spawnTimer)
             {
-                if (Input.GetKey(KeyCode.F9))
-                {
-                    pause = false;
-                }
-                Time.timeScale = 0;
-            }
-            else
-            {
-                Time.timeScale = 1;
-            }
-        }*/
-        
-        // internal counter
-        timer += Time.deltaTime;
-        if (timer > spawnTimer)
-        {
-            //Resets timer once it hits the spawnTimer
-            timer = 0.0f;
+                //Resets timer once it hits the spawnTimer
+                timer = 0.0f;
 
-            
-            //Spawns object once timer reaches spawnTimer
-            GameObject newObject = (GameObject)Instantiate(entityHolder, transform.position, Quaternion.identity) as GameObject;
+
+                //Spawns object once timer reaches spawnTimer
+                GameObject newObject = (GameObject)Instantiate(entityHolder, transform.position, Quaternion.identity) as GameObject;
+            }
         }
     }
 }

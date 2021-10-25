@@ -27,10 +27,8 @@ public class CommandInvoker : MonoBehaviour
 
     public static void ClearQueue()
     {
-        while (commandHistory.Count > counter)
-        {
-            commandHistory.RemoveAt(counter);
-        }
+        commandHistory.Clear();
+        counter = 0;
     }
 
     // Update is called once per frame
