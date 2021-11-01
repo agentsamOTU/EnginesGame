@@ -12,7 +12,7 @@ public class PlayerScript : MonoBehaviour
 
     public float fireTime=0.0f;
 
-    public float fireDelay = 0.5f;
+    public float fireDelay = 0.01f;
     private Vector3 moveMe;
     public int tickToMove = 0;
 
@@ -27,7 +27,7 @@ public class PlayerScript : MonoBehaviour
     {
         fireTime += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.Space) && fireTime > fireDelay)
+        if (Input.GetKey(KeyCode.Space) && fireTime > fireDelay)
         {
             bulletHolder.GetComponent<BulletsScript>().Fire(transform.forward, transform.position);
             fireTime = 0.0f;

@@ -21,7 +21,7 @@ public class SingleBulletScript : MonoBehaviour
     {
         if (collision.gameObject.tag != "Player")
         {
-            transform.position = transform.position - new Vector3(0.0f, 2.0f, 0.0f);
+            gameObject.SetActive(false);
         }
     }
 }

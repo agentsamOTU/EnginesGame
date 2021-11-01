@@ -26,8 +26,7 @@ public class EnemyScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         nav = gameObject.GetComponent<NavMeshAgent>();
         nav.speed = GetEnemySpeed();
-        Debug.Log(nav.speed);
-        Debug.Log(GetEnemySpeed());
+     
     }
 
     // Update is called once per frame
