@@ -51,6 +51,8 @@ public class EnemyScript : MonoBehaviour
             health--;
             if (health <= 0)
             {
+                GlobalVariableScript.Instance.messageQueue.Enqueue(gameObject.name + " has died :(");
+
                 Object.Destroy(gameObject);
             }
         }
