@@ -32,6 +32,17 @@ public class PlayerScript : MonoBehaviour
             bulletHolder.GetComponent<BulletsScript>().Fire(transform.forward, transform.position);
             fireTime = 0.0f;
         }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(Time.timeScale==0.0f)
+            {
+                Time.timeScale = 1.0f;
+            }
+            else
+            {
+                Time.timeScale = 0.0f;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -67,6 +78,10 @@ public class PlayerScript : MonoBehaviour
             {
                 Application.Quit();
             }
+        }
+        if(collision.gameObject.tag=="Bullet")
+        {
+            Debug.Log("He is shooting himself");
         }
     }
 }

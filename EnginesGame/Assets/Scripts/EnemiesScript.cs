@@ -11,9 +11,13 @@ public class EnemiesScript : MonoBehaviour
     public int columns;
     public int enemyDestroyed;
     public float timer = 0.0f;
+    public GameObject bulletHolder;
+
 
     public float eventTime = 5.0f;
     public GameObject win;
+    private bool direction = true;
+    public float judderSpeed = 0.05f;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +42,23 @@ public class EnemiesScript : MonoBehaviour
         if(timer>eventTime)
         {
             TriggerEvent();
+            timer = 0.0f;
         }
-        if(enemyDestroyed>=rows*columns)
+      
+    }
+    private void FixedUpdate()
+    {
+        if(transform.position.x>5||transform.position.x<-5)
         {
-            win.SetActive(true);
+            direction = !direction;
+        }
+        if(direction)
+        {
+            transform.position += new Vector3(judderSpeed, 0.0f, 0.0f);
+        }
+        else
+        {
+            transform.position += new Vector3(-judderSpeed, 0.0f, 0.0f);
         }
     }
 
@@ -49,9 +66,25 @@ public class EnemiesScript : MonoBehaviour
     {
         enemyDestroyed++;
         GlobalVariableScript.Instance.enemyDestroyed++;
+        if(enemyDestroyed>= rows*columns*0.25)
+        {
+            judderSpeed = 0.1f;
+        }
+        if (enemyDestroyed >= rows * columns * 0.5)
+        {
+            judderSpeed = 0.2f;
+        }
+        if (enemyDestroyed >= rows * columns * 0.75)
+        {
+            judderSpeed = 0.4f;
+        }
+        if (enemyDestroyed >= rows * columns)
+        {
+            win.SetActive(true);
+        }
     }
     public void TriggerEvent()
     {
-
+        //bulletHolder.GetComponent<BulletsScript>().Fire(new Vector3(-10.0f, 0.0f, 0.0f), new Vector3(-0.5f, 0.0f, 0.0f));
     }
 }

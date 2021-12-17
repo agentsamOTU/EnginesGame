@@ -22,6 +22,7 @@ public class BulletsScript :MonoBehaviour
       {
             bullNumber++;
             bullets.Insert(bullNumber,GameObject.Instantiate(bullets[0]));
+            bullets[bullNumber].transform.SetParent(transform);
             if (bullNumber >= bullets.Count)
             {
                 bullNumber = 0;

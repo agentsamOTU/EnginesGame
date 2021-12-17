@@ -8,6 +8,7 @@ public class CanvasScript : MonoBehaviour
     public Text loseText;
     public Text healthText;
     public Text scoreText;
+    public Text timerText;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class CanvasScript : MonoBehaviour
     {
         healthText.text ="Health: " + GlobalVariableScript.Instance.playerHealth.ToString();
         scoreText.text ="Score: " + (GlobalVariableScript.Instance.enemyDestroyed * 1000).ToString();
+        timerText.text = "Time: " + ((int)Time.time).ToString();
 
         if(GlobalVariableScript.Instance.playerHealth<=0)
         {

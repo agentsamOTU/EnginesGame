@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
-  health: 4
+  health: 1
 --- !u!65 &1256330845325253569
 BoxCollider:
   m_ObjectHideFlags: 0
