@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 6689990297333099116}
   - component: {fileID: 8358876512693998374}
   - component: {fileID: 4982401515216467890}
-  - component: {fileID: -3452849960011939174}
-  - component: {fileID: 5497028472538585411}
   - component: {fileID: 321729097479112862}
+  - component: {fileID: 1256330845325253569}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2477456727860541783}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.08086, y: 0.002982, z: -12.350998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,42 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!195 &-3452849960011939174
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2477456727860541783}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 1.16
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.73
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!64 &5497028472538585411
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2477456727860541783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2432090755550338912, guid: 89a445c99daa60c488f64ecc07e73c91, type: 3}
 --- !u!114 &321729097479112862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +96,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6bdc1950f3360f48b124755f893f2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  followDist: 20
+  parent: {fileID: 0}
   health: 4
+--- !u!65 &1256330845325253569
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2477456727860541783}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 15.39, z: 2}
+  m_Center: {x: 0, y: 0.39063898, z: 0}

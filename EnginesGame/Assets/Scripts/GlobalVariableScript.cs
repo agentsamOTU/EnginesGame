@@ -7,7 +7,9 @@ public class GlobalVariableScript : MonoBehaviour
     // Start is called before the first frame update
     public static GlobalVariableScript Instance;
 
-    public int playerHealth = 10;
+    public int playerHealth = 3;
+
+    public int enemyDestroyed = 0;
 
     private void Awake()
     {

@@ -49,7 +49,7 @@ public class PlayerScript : MonoBehaviour
         }
         if (tempHor != 0 || tempVert != 0)
         {
-            transform.rotation = Quaternion.LookRotation(new Vector3(tempHor, 0.0f, tempVert), Vector3.up);
+            //transform.rotation = Quaternion.LookRotation(new Vector3(tempHor, 0.0f, tempVert), Vector3.up);
 
         }
 
@@ -61,10 +61,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             GlobalVariableScript.Instance.playerHealth--;
-            moveMe = collision.transform.position - transform.position;
-
-            //body.velocity = new Vector3(moveMe.x,0.0f,moveMe.z)*3.0f;
-            tickToMove = 20;
+            
             //transform.position = transform.position + moveMe * 2.0f;
             if (GlobalVariableScript.Instance.playerHealth <= 0)
             {
